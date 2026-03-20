@@ -12,6 +12,10 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
+# ========== 关键：创建 claw 用户（UID 1000）==========
+#RUN groupadd -g 1002 claw && \
+    #useradd -u 1002 -g claw -m -s /bin/bash claw
+
 WORKDIR /app
 
 # Install Python dependencies first (cached layer)
